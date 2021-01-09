@@ -25,20 +25,20 @@ namespace Homework_5
             Func<double, double> rt = _ => 0.0;
             
             // var eulerError = Euler(t, tmax, T, start, A, verbose: true);
-            var reverseEulerError = ReverseEuler(t, tmax, T, start, A, r: rt, verbose: true);
+            var reverseEulerError = ReverseEuler(t, tmax*10, T*1000, start, A, r: rt, verbose: true);
         }
 
-        private static double Euler(double t, double tmax, double T, Vector<double> start, Matrix<double> A,
+        private static double Euler(double time, double tmax, double T, Vector<double> start, Matrix<double> A,
             Matrix<double> B = null, Func<double, double> r = null, bool verbose = false)
         {
             var x = VectorBuilder.DenseOfVector(start);
             var cumulativeError = 0.0;
-            while (t < tmax)
+            for (var t = T; t <= tmax; t += T)
             {
                 var pendulum = Generator.GeneratePendulum(start, t);
-                cumulativeError += (x - pendulum).L2Norm();
                 x += T * A * x;
-                t += T;
+                
+                cumulativeError += (x - pendulum).L2Norm();
 
                 if (verbose)
                     Console.WriteLine(
@@ -50,7 +50,7 @@ namespace Homework_5
             return cumulativeError;
         }
 
-        private static double ReverseEuler(double t, double tmax, double T, Vector<double> start, Matrix<double> A,
+        private static double ReverseEuler(double time, double tmax, double T, Vector<double> start, Matrix<double> A,
             Matrix<double> B = null, Func<double, double> r = null, bool verbose = false)
         {
             var U = MatrixBuilder.DenseIdentity(A.ColumnCount);
@@ -59,14 +59,13 @@ namespace Homework_5
 
             var x = VectorBuilder.DenseOfVector(start);
             var cumulativeError = 0.0;
-            while (t < tmax)
+            for (var t = T; t <= tmax; t += T)
             {
                 var pendulum = Generator.GeneratePendulum(start, t);
-                t += T;
                 var rt = r?.Invoke(t) ?? 0;
                 var rtVector = VectorBuilder.Dense(new []{rt, rt});
-                cumulativeError += (x - pendulum).L2Norm();
                 x += P * x + Q * rtVector;
+                cumulativeError += (x - pendulum).L2Norm();
 
                 if (verbose)
                     Console.WriteLine(
