@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "2HJSi5WF9vHKTU2ZX5wy5XGNhge4ZGmZX065P+7CV4AW9uRtlBWJG5ISIcIjvCjk7/MVWm45lxfQhGyfTaJgAQ==",
+  "success": true,
+  "projectFilePath": "C:\\git\\Computer-Aided-Analysis-and-Design\\Homework_5\\Homework_5.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Bobi\\.nuget\\packages\\mathnet.numerics\\4.15.0\\mathnet.numerics.4.15.0.nupkg.sha512"
+  ],
+  "logs": []
+}
