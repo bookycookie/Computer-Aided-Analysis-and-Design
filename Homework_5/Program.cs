@@ -1,6 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using Homework_5.Helpers;
 using MathNet.Numerics.LinearAlgebra;
-using MathNet.Numerics.LinearAlgebra.Double;
 
 namespace Homework_5
 {
@@ -11,27 +12,32 @@ namespace Homework_5
 
         static void Main(string[] args)
         {
-            // Assignment1(verbose: false);
-            // Assignment2(verbose: false);
-            // Assignment3(verbose: false);
-            Assignment4(verbose: false);
+            Assignment1(correctionLoop: 2, verbose: false, saveToFile: false);
+            // Assignment2(correctionLoop: 2, verbose: false, saveToFile: false);
+            // Assignment3(correctionLoop: 2, verbose: false, saveToFile: false);
+            // Assignment4(correctionLoop: 2, verbose: false, saveToFile: false);
+            
         }
 
-        private static void Assignment1(double T = 0.01, int tmax = 10, bool verbose = true)
+        private static void Assignment1(int correctionLoop, double T = 0.01, int tmax = 10, bool verbose = true,
+            string assignmentPath = "C:/git/Computer-Aided-Analysis-and-Design/Homework_5/Files/Assignment1/", bool saveToFile = false)
         {
-            Console.WriteLine("ASSIGNEMENT 1");
+            Console.WriteLine("ASSIGNMENT 1");
             var start = VectorBuilder.Dense(new[] {1.0, 1.0});
             var A = MatrixBuilder.Dense(2, 2, new[] {0.0, -1.0, 1.0, 0.0});
             var B = MatrixBuilder.Dense(2, 2);
             Func<double, double> rt = _ => 0.0;
 
-            var euler = Euler(tmax, T, start, A, B, rt, verbose);
-            var reverseEuler = ReverseEuler(tmax, T, start, A, B, rt, verbose);
-            var trapezoid = Trapezoid(tmax, T, start, A, B, rt, verbose);
-            var rungeKutta = RungeKutta(tmax, T, start, A, B, rt, verbose);
+            var euler = Euler(assignmentPath + "euler.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
+            var reverseEuler = ReverseEuler(assignmentPath + "reverseEuler.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
+            var trapezoid = Trapezoid(assignmentPath + "trapezoid.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
+            var rungeKutta = RungeKutta(assignmentPath + "rungeKutta.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
+            var pece = Pece(assignmentPath + "pece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
+            var pecece = Pecece(assignmentPath + "pecece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
         }
 
-        private static void Assignment2(double T = 0.1, int tmax = 1, bool verbose = true)
+        private static void Assignment2(int correctionLoop, double T = 0.1, int tmax = 1, bool verbose = true,
+            string assignmentPath = "C:/git/Computer-Aided-Analysis-and-Design/Homework_5/Files/Assignment2/", bool saveToFile = false)
         {
             Console.WriteLine("ASSIGNMENT 2");
             var start = VectorBuilder.Dense(new[] {1.0, -2.0});
@@ -39,13 +45,16 @@ namespace Homework_5
             var B = MatrixBuilder.Dense(2, 2);
             Func<double, double> rt = _ => 0.0;
 
-            var euler = Euler(tmax, T, start, A, B, rt, verbose);
-            var reverseEuler = ReverseEuler(tmax, T, start, A, B, rt, verbose);
-            var trapezoid = Trapezoid(tmax, T, start, A, B, rt, verbose);
-            var rungeKutta = RungeKutta(tmax, T, start, A, B, rt, verbose);
+            var euler = Euler(assignmentPath + "euler.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
+            var reverseEuler = ReverseEuler(assignmentPath + "reverseEuler.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
+            var trapezoid = Trapezoid(assignmentPath + "trapezoid.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
+            var rungeKutta = RungeKutta(assignmentPath + "rungeKutta.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
+            var pece = Pece(assignmentPath + "pece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
+            var pecece = Pecece(assignmentPath + "pecece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
         }
 
-        private static void Assignment3(double T = 0.01, int tmax = 10, bool verbose = true)
+        private static void Assignment3(int correctionLoop, double T = 0.01, int tmax = 10, bool verbose = true,
+            string assignmentPath = "C:/git/Computer-Aided-Analysis-and-Design/Homework_5/Files/Assignment3/", bool saveToFile = false)
         {
             Console.WriteLine("ASSIGNMENT 3");
             var start = VectorBuilder.Dense(new[] {1.0, 3.0});
@@ -53,13 +62,16 @@ namespace Homework_5
             var B = MatrixBuilder.Dense(2, 2, new[] {2.0, 0.0, 0.0, 3.0});
             Func<double, double> rt = _ => 1.0;
 
-            var euler = Euler(tmax, T, start, A, B, rt, verbose);
-            var reverseEuler = ReverseEuler(tmax, T, start, A, B, rt, verbose);
-            var trapezoid = Trapezoid(tmax, T, start, A, B, rt, verbose);
-            var rungeKutta = RungeKutta(tmax, T, start, A, B, rt, verbose);
+            var euler = Euler(assignmentPath + "euler.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
+            var reverseEuler = ReverseEuler(assignmentPath + "reverseEuler.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
+            var trapezoid = Trapezoid(assignmentPath + "trapezoid.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
+            var rungeKutta = RungeKutta(assignmentPath + "rungeKutta.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
+            var pece = Pece(assignmentPath + "pece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
+            var pecece = Pecece(assignmentPath + "pecece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
         }
 
-        private static void Assignment4(double T = 0.01, int tmax = 1, bool verbose = true)
+        private static void Assignment4(int correctionLoop, double T = 0.01, int tmax = 1, bool verbose = true,
+            string assignmentPath = "C:/git/Computer-Aided-Analysis-and-Design/Homework_5/Files/Assignment4/", bool saveToFile = false)
         {
             Console.WriteLine("ASSIGNMENT 4");
             var start = VectorBuilder.Dense(new[] {-1.0, 3.0});
@@ -67,39 +79,57 @@ namespace Homework_5
             var B = MatrixBuilder.Dense(2, 2, new[] {5.0, 0.0, 0.0, 3.0});
             Func<double, double> rt = t => t;
 
-            var euler = Euler(tmax, T, start, A, B, rt, verbose);
-            var reverseEuler = ReverseEuler(tmax, T, start, A, B, rt, verbose);
-            var trapezoid = Trapezoid(tmax, T, start, A, B, rt, verbose);
-            var rungeKutta = RungeKutta(tmax, T, start, A, B, rt, verbose);
+            var euler = Euler(assignmentPath + "euler.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
+            var reverseEuler = ReverseEuler(assignmentPath + "reverseEuler.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
+            var trapezoid = Trapezoid(assignmentPath + "trapezoid.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
+            var rungeKutta = RungeKutta(assignmentPath + "rungeKutta.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
+            var pece = Pece(assignmentPath + "pece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
+            var pecece = Pecece(assignmentPath + "pecece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
         }
 
-        private static Vector<double> Euler(double tmax, double T, Vector<double> start, Matrix<double> A,
-            Matrix<double> B, Func<double, double> r, bool verbose = false)
+        private static Vector<double> Euler(string assignmentPath, double tmax, double T, Vector<double> start,
+            Matrix<double> A,
+            Matrix<double> B, Func<double, double> r, bool verbose = false, bool saveToFile = false)
         {
             Console.WriteLine($"\nEULER(tmax: {tmax}, T: {T}, start: [{string.Join(' ', start.ToArray())}])");
+            var time = new List<double> {0.0};
+            var data = new List<Vector<double>> {start};
+            var pendulumData = new List<Vector<double>> {start};
             var x = VectorBuilder.DenseOfVector(start);
             var cumulativeError = VectorBuilder.Dense(A.RowCount);
             for (var t = T; t <= tmax; t += T)
             {
                 var pendulum = Generator.GeneratePendulum(start, t);
-                x += T * A * x;
+                x += T * (A * x + B * VectorBuilder.Dense(new[] {r(t - T), r(t - T)}));
 
                 cumulativeError += Vector<double>.Abs(x - pendulum);
 
                 if (verbose)
                     Console.WriteLine(
                         $"t: {t:F2} -- x: [{string.Join(' ', x.ToArray())}] -- pendulum: {string.Join(' ', pendulum.ToArray())}]");
+
+                data.Add(x);
+                pendulumData.Add(pendulum);
+                time.Add(t);
             }
 
             Console.WriteLine($"Cumulative error: [{string.Join(' ', cumulativeError.ToArray())}]");
 
+            if (saveToFile)
+                FileHelper.WriteToFile(time, data, assignmentPath, pendulumData);
+
             return x;
         }
 
-        private static Vector<double> ReverseEuler(double tmax, double T, Vector<double> start, Matrix<double> A,
-            Matrix<double> B, Func<double, double> r, bool verbose = false)
+        private static Vector<double> ReverseEuler(string assignmentPath, double tmax, double T, Vector<double> start,
+            Matrix<double> A,
+            Matrix<double> B, Func<double, double> r, bool verbose = false, bool saveToFile = false)
         {
             Console.WriteLine($"\nREVERSE EULER(tmax: {tmax}, T: {T}, start: [{string.Join(' ', start.ToArray())}])");
+            var time = new List<double> {0.0};
+            var data = new List<Vector<double>> {start};
+            var pendulumData = new List<Vector<double>> {start};
+            
             var U = MatrixBuilder.DenseIdentity(A.ColumnCount);
             var P = (U - A * T).Inverse();
             var Q = P * T * B;
@@ -115,20 +145,80 @@ namespace Homework_5
                 if (verbose)
                     Console.WriteLine(
                         $"t: {t:F2} -- x: [{string.Join(' ', x.ToArray())}] -- pendulum: {string.Join(' ', pendulum.ToArray())}]");
+                
+                data.Add(x);
+                pendulumData.Add(pendulum);
+                time.Add(t);
             }
 
             Console.WriteLine($"Cumulative error: [{string.Join(' ', cumulativeError.ToArray())}]");
+            
+            if (saveToFile)
+                FileHelper.WriteToFile(time, data, assignmentPath, pendulumData);
 
             return x;
         }
 
-        private static Vector<double> Trapezoid(double tmax, double T, Vector<double> start, Matrix<double> A,
+        private static Vector<double> ImplicitReverseEuler(double tmax, double T, Vector<double> start,
+            Vector<double> prediction, Matrix<double> A,
             Matrix<double> B, Func<double, double> r, bool verbose = false)
         {
+            Console.WriteLine(
+                $"\nIMPLICIT REVERSE EULER(tmax: {tmax}, T: {T}, prediction: [{string.Join(' ', prediction.ToArray())}])");
+            var x = VectorBuilder.Dense(prediction.Count);
+            var cumulativeError = VectorBuilder.Dense(A.RowCount);
+            for (var t = T; t <= tmax; t += T)
+            {
+                var pendulum = Generator.GeneratePendulum(start, t);
+                x += T * (A * prediction + B * VectorBuilder.Dense(new[] {r(t), r(t)}));
+                cumulativeError += Vector<double>.Abs(x - pendulum);
+
+                if (verbose)
+                    Console.WriteLine(
+                        $"t: {t:F2} -- x: [{string.Join(' ', x.ToArray())}] -- pendulum: {string.Join(' ', pendulum.ToArray())}]");
+            }
+
+            Console.WriteLine($"Cumulative error: [{string.Join(' ', cumulativeError.ToArray())}]");
+            
+            return x;
+        }
+
+        private static Vector<double> ImplicitTrapezoid(double tmax, double T, Vector<double> start,
+            Vector<double> prediction,
+            Matrix<double> A,
+            Matrix<double> B, Func<double, double> r, bool verbose = false)
+        {
+            Console.WriteLine(
+                $"\nIMPLICIT TRAPEZOID(tmax: {tmax}, T: {T}, prediction: [{string.Join(' ', prediction.ToArray())}])");
+            var x = VectorBuilder.Dense(prediction.Count);
+            var cumulativeError = VectorBuilder.Dense(A.RowCount);
+            for (var t = T; t <= tmax; t += T)
+            {
+                var pendulum = Generator.GeneratePendulum(start, t);
+                x += 0.5 * T * (A * x + B * VectorBuilder.Dense(new[] {r(t - T), r(t - T)}) + A * prediction +
+                                B * VectorBuilder.Dense(new[] {r(t), r(t)}));
+                cumulativeError += Vector<double>.Abs(x - pendulum);
+
+                if (verbose)
+                    Console.WriteLine(
+                        $"t: {t:F2} -- x: [{string.Join(' ', x.ToArray())}] -- pendulum: {string.Join(' ', pendulum.ToArray())}]");
+            }
+
+            Console.WriteLine($"Cumulative error: [{string.Join(' ', cumulativeError.ToArray())}]");
+            return x;
+        }
+
+        private static Vector<double> Trapezoid(string assignmentPath, double tmax, double T, Vector<double> start,
+            Matrix<double> A,
+            Matrix<double> B, Func<double, double> r, bool verbose = false, bool saveToFile = false)
+        {
             Console.WriteLine($"\nTRAPEZOID(tmax: {tmax}, T: {T}, start: [{string.Join(' ', start.ToArray())}])");
+            var time = new List<double> {0.0};
+            var data = new List<Vector<double>> {start};
+            var pendulumData = new List<Vector<double>> {start};
+            
             var U = MatrixBuilder.DenseIdentity(A.ColumnCount);
             var R = (U - A * 0.5 * T).Inverse() * (U + A * 0.5 * T);
-
             var S = (U - A * 0.5 * T).Inverse() * (0.5 * T) * B;
 
             var x = VectorBuilder.DenseOfVector(start);
@@ -143,17 +233,28 @@ namespace Homework_5
                 if (verbose)
                     Console.WriteLine(
                         $"t: {t:F2} -- x: [{string.Join(' ', x.ToArray())}] -- pendulum: {string.Join(' ', pendulum.ToArray())}]");
+                
+                data.Add(x);
+                pendulumData.Add(pendulum);
+                time.Add(t);
             }
 
             Console.WriteLine($"Cumulative error: [{string.Join(' ', cumulativeError.ToArray())}]");
+            if (saveToFile)
+                FileHelper.WriteToFile(time, data, assignmentPath, pendulumData);
 
             return x;
         }
 
-        private static Vector<double> RungeKutta(double tmax, double T, Vector<double> start, Matrix<double> A,
-            Matrix<double> B, Func<double, double> r, bool verbose = false)
+        private static Vector<double> RungeKutta(string assignmentPath, double tmax, double T, Vector<double> start,
+            Matrix<double> A,
+            Matrix<double> B, Func<double, double> r, bool verbose = false, bool saveToFile = false)
         {
             Console.WriteLine($"\nRUNGE KUTTA(tmax: {tmax}, T: {T}, start: [{string.Join(' ', start.ToArray())}])");
+            var time = new List<double> {0.0};
+            var data = new List<Vector<double>> {start};
+            var pendulumData = new List<Vector<double>> {start};
+            
             var x = VectorBuilder.DenseOfVector(start);
             var cumulativeError = VectorBuilder.Dense(A.RowCount);
             for (var t = T; t <= tmax; t += T)
@@ -173,10 +274,64 @@ namespace Homework_5
                 if (verbose)
                     Console.WriteLine(
                         $"t: {t:F2} -- x: [{string.Join(' ', x.ToArray())}] -- pendulum: {string.Join(' ', pendulum.ToArray())}]");
+                
+                data.Add(x);
+                pendulumData.Add(pendulum);
+                time.Add(t);
             }
 
             Console.WriteLine($"Cumulative error: [{string.Join(' ', cumulativeError.ToArray())}]");
+            if (saveToFile)
+                FileHelper.WriteToFile(time, data, assignmentPath, pendulumData);
             return x;
         }
+        private static Vector<double> Pece(string assignmentPath, double tmax, double T, Vector<double> start,
+            Matrix<double> A,
+            Matrix<double> B, Func<double, double> r, bool verbose = false, int correctionLoop = 1, bool saveToFile = false)
+        {
+            var time = new List<double> {0.0};
+            var data = new List<Vector<double>> {start};
+            var correction = VectorBuilder.DenseOfVector(start);
+            for (var t = T; t <= tmax; t += T)
+            {
+                var prediction = Euler(assignmentPath, tmax: 0, T, correction, A, B, r, verbose);
+                correction = prediction;
+                for (var i = 0; i < correctionLoop; i++)
+                    correction = ImplicitTrapezoid(tmax, T, start, prediction: correction, A, B, r, verbose);
+                
+                data.Add(correction);
+                time.Add(t);
+            }
+            
+            if (saveToFile)
+                FileHelper.WriteToFile(time, data, assignmentPath, data);
+
+            return correction;
+        }
+        
+        private static Vector<double> Pecece(string assignmentPath, double tmax, double T, Vector<double> start,
+            Matrix<double> A,
+            Matrix<double> B, Func<double, double> r, bool verbose = false, int correctionLoop = 2, bool saveToFile = false)
+        {
+            var time = new List<double> {0.0};
+            var data = new List<Vector<double>> {start};
+            var correction = VectorBuilder.DenseOfVector(start);
+            for (var t = T; t <= tmax; t += T)
+            {
+                var prediction = Euler(assignmentPath, tmax: T, T, correction, A, B, r, verbose);
+                correction = prediction;
+                for (var i = 0; i < correctionLoop; i++)
+                    correction = ImplicitReverseEuler(tmax, T, start, prediction: correction, A, B, r, verbose);
+                
+                data.Add(correction);
+                time.Add(t);
+            }
+            if (saveToFile)
+                FileHelper.WriteToFile(time, data, assignmentPath, data);
+
+            return correction;
+        }
+
+        
     }
 }

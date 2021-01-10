@@ -9,4 +9,10 @@
       <PackageReference Include="MathNet.Numerics" Version="4.15.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Include="Files\Assignment2\rungeKutta.txt" />
+      <Content Include="Files\Assignment3\rungeKutta.txt" />
+      <Content Include="Files\Assignment4\rungeKutta.txt" />
+    </ItemGroup>
+
 </Project>
