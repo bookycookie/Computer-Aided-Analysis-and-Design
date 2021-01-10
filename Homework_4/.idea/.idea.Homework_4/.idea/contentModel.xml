@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Faks\APR\Homework_4\Homework_4" t="IncludeRecursive">
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="Crossover" t="Include">
+        <e p="BinaryCrossover" t="Include">
+          <e p="SinglePointBinaryCrossover.cs" t="Include" />
+          <e p="UniformBinaryCrossover.cs" t="Include" />
+        </e>
+        <e p="DoubleCrossover" t="Include">
+          <e p="ArithmeticCrossover.cs" t="Include" />
+          <e p="BLXDoubleCrossover.cs" t="Include" />
+        </e>
+        <e p="ICrossover.cs" t="Include" />
+      </e>
+      <e p="Functions.cs" t="Include" />
+      <e p="GeneticAlgorithm" t="Include">
+        <e p="BinaryGA.cs" t="Include" />
+        <e p="DoubleGA.cs" t="Include" />
+        <e p="IGeneticAlgorithm.cs" t="Include" />
+      </e>
+      <e p="Homework_4.csproj" t="IncludeRecursive" />
+      <e p="Homework_4.sln" t="IncludeFlat" />
+      <e p="Individual" t="Include">
+        <e p="BinaryIndividual.cs" t="Include" />
+        <e p="DoubleIndividual.cs" t="Include" />
+        <e p="Individual.cs" t="Include" />
+      </e>
+      <e p="Mutation" t="Include">
+        <e p="BinaryMutation" t="Include">
+          <e p="SimpleBinaryMutation.cs" t="Include" />
+        </e>
+        <e p="DoubleMutation" t="Include">
+          <e p="GaussianDoubleMutation.cs" t="Include" />
+        </e>
+        <e p="IMutation.cs" t="Include" />
+      </e>
+      <e p="obj" t="ExcludeRecursive">
+        <e p="Debug" t="Include">
+          <e p="net5.0" t="Include">
+            <e p="Homework_4.AssemblyInfo.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Program.cs" t="Include" />
+      <e p="RandomExtension.cs" t="Include" />
+      <e p="Selection" t="Include">
+        <e p="ISelection.cs" t="Include" />
+        <e p="KTournamentSelection.cs" t="Include" />
+      </e>
+    </e>
+    <e p="C:\Users\bgoljacki\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\bgoljacki\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_Homework_4.-198914772.00" t="ExcludeRecursive" />
+  </component>
+</project>

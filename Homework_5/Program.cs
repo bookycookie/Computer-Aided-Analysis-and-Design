@@ -12,9 +12,15 @@ namespace Homework_5
 
         static void Main(string[] args)
         {
+<<<<<<< HEAD
             // Assignment1(correctionLoop: 2, verbose: false, saveToFile: false);
             // Assignment2(correctionLoop: 2, verbose: false, saveToFile: false);
             Assignment3(correctionLoop: 2, verbose: false, saveToFile: false);
+=======
+            Assignment1(correctionLoop: 2, verbose: false, saveToFile: false);
+            // Assignment2(correctionLoop: 2, verbose: false, saveToFile: false);
+            // Assignment3(correctionLoop: 2, verbose: false, saveToFile: false);
+>>>>>>> 79ba175602f17d8232a9fdb76ada23297a40c63e
             // Assignment4(correctionLoop: 2, verbose: false, saveToFile: false);
             
         }
@@ -32,8 +38,13 @@ namespace Homework_5
             var reverseEuler = ReverseEuler(assignmentPath + "reverseEuler.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
             var trapezoid = Trapezoid(assignmentPath + "trapezoid.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
             var rungeKutta = RungeKutta(assignmentPath + "rungeKutta.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
+<<<<<<< HEAD
             // var pece = Pece(assignmentPath + "pece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
             // var pecece = Pecece(assignmentPath + "pecece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
+=======
+            var pece = Pece(assignmentPath + "pece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
+            var pecece = Pecece(assignmentPath + "pecece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
+>>>>>>> 79ba175602f17d8232a9fdb76ada23297a40c63e
         }
 
         private static void Assignment2(int correctionLoop, double T = 0.1, int tmax = 1, bool verbose = true,
@@ -49,8 +60,13 @@ namespace Homework_5
             var reverseEuler = ReverseEuler(assignmentPath + "reverseEuler.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
             var trapezoid = Trapezoid(assignmentPath + "trapezoid.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
             var rungeKutta = RungeKutta(assignmentPath + "rungeKutta.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
+<<<<<<< HEAD
             // var pece = Pece(assignmentPath + "pece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
             // var pecece = Pecece(assignmentPath + "pecece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
+=======
+            var pece = Pece(assignmentPath + "pece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
+            var pecece = Pecece(assignmentPath + "pecece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
+>>>>>>> 79ba175602f17d8232a9fdb76ada23297a40c63e
         }
 
         private static void Assignment3(int correctionLoop, double T = 0.01, int tmax = 10, bool verbose = true,
@@ -65,9 +81,15 @@ namespace Homework_5
             var euler = Euler(assignmentPath + "euler.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
             var reverseEuler = ReverseEuler(assignmentPath + "reverseEuler.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
             var trapezoid = Trapezoid(assignmentPath + "trapezoid.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
+<<<<<<< HEAD
             var rungeKutta = RungeKutta(assignmentPath + "rungeKutta.txt", tmax, T*100, start, A, B, rt, verbose, saveToFile);
             // var pece = Pece(assignmentPath + "pece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
             // var pecece = Pecece(assignmentPath + "pecece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
+=======
+            var rungeKutta = RungeKutta(assignmentPath + "rungeKutta.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
+            var pece = Pece(assignmentPath + "pece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
+            var pecece = Pecece(assignmentPath + "pecece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
+>>>>>>> 79ba175602f17d8232a9fdb76ada23297a40c63e
         }
 
         private static void Assignment4(int correctionLoop, double T = 0.01, int tmax = 1, bool verbose = true,
@@ -83,8 +105,13 @@ namespace Homework_5
             var reverseEuler = ReverseEuler(assignmentPath + "reverseEuler.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
             var trapezoid = Trapezoid(assignmentPath + "trapezoid.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
             var rungeKutta = RungeKutta(assignmentPath + "rungeKutta.txt", tmax, T, start, A, B, rt, verbose, saveToFile);
+<<<<<<< HEAD
             // var pece = Pece(assignmentPath + "pece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
             // var pecece = Pecece(assignmentPath + "pecece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
+=======
+            var pece = Pece(assignmentPath + "pece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
+            var pecece = Pecece(assignmentPath + "pecece.txt", tmax, T, start, A, B, rt, verbose, correctionLoop, saveToFile);
+>>>>>>> 79ba175602f17d8232a9fdb76ada23297a40c63e
         }
 
         private static Vector<double> Euler(string assignmentPath, double tmax, double T, Vector<double> start,
